@@ -4,7 +4,7 @@ import ordering.model.Product;
 
 public class DefaultProductService implements ProductService {
 
-    public Product getProductById(String id) {
+    public Product getProductById(Integer id) {
         return null;
     }
 
@@ -12,7 +12,4 @@ public class DefaultProductService implements ProductService {
         return null;
     }
 
-    public Iterable<Product> getAllProducts() {
-        return null;
-    }
 }

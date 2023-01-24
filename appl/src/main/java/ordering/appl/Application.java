@@ -9,7 +9,7 @@ public class Application {
         OrderService orderService = new OrderService();
 
         // example for just one product -- but we will have many orders
-        Product product = orderService.placeOrder("32");
+        Product product = orderService.placeOrder(32);
         orderService.reportOrderedProduct(product);
     }
 }
