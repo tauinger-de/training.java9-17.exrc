@@ -1,15 +1,23 @@
 package ordering.appl;
 
 import ordering.model.Product;
+import ordering.service.DefaultProductService;
 import ordering.service.OrderService;
+import ordering.service.ProductService;
+
+import java.util.List;
 
 public class Application {
 
     public static void main(String[] args) {
-        OrderService orderService = new OrderService();
+        ProductService productService = new DefaultProductService();
+        OrderService orderService = new OrderService(productService);
 
-        // example for just one product -- but we will have many orders
-        Product product = orderService.placeOrder("32");
-        orderService.reportOrderedProduct(product);
+        List.of(32, "Großes Pils")
+                .forEach(identifier -> {
+                            Product product = orderService.placeOrder(identifier);
+                            orderService.reportOrderedProduct(product);
+                        }
+                );
     }
 }
